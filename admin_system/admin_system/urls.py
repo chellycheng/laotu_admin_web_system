@@ -19,5 +19,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
+    path(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics')
 ]
