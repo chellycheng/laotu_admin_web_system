@@ -1,4 +1,6 @@
 from boards import views
+from django.conf.urls import url
+
 """admin_system URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,5 +22,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics')
+    url(r'^boards/(?P<bid>\d+)/$', views.board_topics, name='board_topics')
 ]

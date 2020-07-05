@@ -1,0 +1,12 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head><!-- code suppressed for brevity --></head>
+  <body>
+    <div class="container">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+        <li class="breadcrumb-item active">{{ board.name }}</li>
+      </ol>
+    </div>
+  </body>
+</html>

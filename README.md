@@ -22,20 +22,34 @@ Install the virtual enviroment
 Install django
 
     pip install django
+Install requirements
+
+    pip install -r requirements.txt
 
 ### Local server
 Run in terminal
 
     cd yourpath/laotu_admin_web_system
+    source venv/bin/activate
     python admin_system/manage.py runserver
 Open broswer, enter the following address
 
     http://127.0.0.1:8000
 If you want to stop the local server `control +c` in your terminal
+For quitting the virtual environment: 'deactivate' 
 
+### Test
+    source venv/bin/activate
+    cd admin_system
+    python manage.py test
+
+or 
+    python admin_system/manage.py test <app_name>
 ### Support features
 
  - Customers Message Orgnization
  - ...
 
+### Helps 
 
+    - url-patterns
