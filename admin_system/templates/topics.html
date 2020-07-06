@@ -1,12 +1,37 @@
-{% load static %}<!DOCTYPE html>
-<html>
-  <head><!-- code suppressed for brevity --></head>
-  <body>
-    <div class="container">
-      <ol class="breadcrumb my-4">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
-        <li class="breadcrumb-item active">{{ board.name }}</li>
-      </ol>
-    </div>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ board.name }}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item active">{{ board.name }}</li>
+{% endblock %}
+
+{% block content %}
+  {% for topic in topics %}
+    <h2> {{ topic.subject }} </h2>
+    <table class="table"
+    <thead class="thead-inverse">
+      <tr>
+        <th>Post</th>
+        <th>Author</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in posts%}
+        <tr>
+          <td>
+          <a href="{% url 'home' %}">{{ post }}</a>
+          </td>
+          <td class="align-middle">{{ post.created_by}}</td>
+          <td class="align-middle">{{ post.created_at }}</td>
+          <td></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+{% endblock %}

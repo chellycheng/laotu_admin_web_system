@@ -22,5 +22,7 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    url(r'^boards/(?P<bid>\d+)/$', views.board_topics, name='board_topics')
+    url(r'^boards/$', views.boards, name='boards'),
+    url(r'^boards/(?P<bid>\d+)/$', views.board_topics, name='board_topics'),
+    url(r'^boards/(?P<pk>\d+)/new/$', views.new_post, name='new_post')
 ]
