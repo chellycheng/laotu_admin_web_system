@@ -21,7 +21,10 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', views.home, name='login'),
+    url(r'^index/$', views.index, name='index'),
+    url(r'^forgot_password/$', views.forgot_password, name='forgot_password'),
+    url(r'^register/$', views.register, name='register'),
     url(r'^boards/$', views.boards, name='boards'),
     url(r'^boards/(?P<bid>\d+)/$', views.board_topics, name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$', views.new_post, name='new_post')

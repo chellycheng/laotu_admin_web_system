@@ -6,9 +6,20 @@ from .forms import NewTopicForm
 # Create your views here.
 
 def home(request):
-    boards = Board.objects.all()
-    return render(request, 'home.html')
-    
+    return render(request, 'login.html')
+
+def index(request):
+    return render(request, 'index.html')
+
+def forgot_password(request):
+    return render(request, 'forgot-password.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def index(request):
+    return render(request, 'index.html')
+
 def boards(request):
     boards = Board.objects.all()
     return render(request, 'boards.html', {'boards': boards})
