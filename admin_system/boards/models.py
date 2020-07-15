@@ -57,7 +57,7 @@ class Role(User):
         (Speaker , 'Speaker')
     )
 
-    role = models.CharField(
+    category = models.CharField(
         max_length=2,
         choices=LIST_OF_ROLES,
         default=JuniorStaff,
