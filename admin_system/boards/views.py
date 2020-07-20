@@ -17,28 +17,5 @@ def forgot_password(request):
 def register(request):
     return render(request, 'register.html')
 
-def index(request):
-    return render(request, 'index.html')
-
-def boards(request):
-    boards = Board.objects.all()
-    return render(request, 'boards.html', {'boards': boards})
-
-def board_topics(request, bid):
-    try:
-        board = get_object_or_404(Board, pk=bid)
-    except:
-        raise Http404
-    return render(request, 'topics.html', {'board': board, 'topics': board.topics.all() })
-
-def new_post(request, pk):
-    board = get_object_or_404(Board, pk=pk) # get the current boards
-    user = User.objects.first()  # TODO: get the currently logged in user
-    if request.method == 'POST':
-        form = NewTopicForm(request.POST)
-        if form.is_valid():
-            topic = form.save()
-            return redirect('board_topics', pk=board.pk)
-    else:
-        form = NewTopicForm()
-    return render(request, 'new_topic.html', {'form': form})
+def register(request):
+    return render(request, 'register.html')
