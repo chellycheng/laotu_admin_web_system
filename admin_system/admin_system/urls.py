@@ -17,13 +17,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #[CHANGE]: this redirects every page from basepath to datastorage.urls 
+    path('', include('datastorage.urls')),
     path('', views.home, name='login'),
     url(r'^index/$', views.index, name='index'),
     url(r'^forgot_password/$', views.forgot_password, name='forgot_password'),
     url(r'^register/$', views.register, name='register'),
-    
 ]
