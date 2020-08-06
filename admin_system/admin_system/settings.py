@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 #Heroku: Update database configuration from $DATABASE_URL
 import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES = {'default': dj_database_url.config(default='postgres://user:pass@localhost/dbname')}
+
 
 import os
 
@@ -30,7 +29,7 @@ SECRET_KEY = '0y$*q%1#mi!-t+d2vu+(-#nzj$hrw)0p6wbht(7ii$@*zdw1q!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -88,6 +87,9 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -125,6 +127,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
